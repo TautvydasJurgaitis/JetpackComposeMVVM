@@ -1,4 +1,4 @@
-package com.z9.jur.jetpackcomposemvvm
+package com.z9.jur.jetpackcomposemvvm.presentation
 
 //import androidx.compose.material3.Text
 import android.os.Bundle
@@ -18,11 +18,20 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.z9.jur.jetpackcomposemvvm.R
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
+ //   @Inject
+  //  lateinit var randomString: String
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
             setContentView(R.layout.activity_main)
+
+    //    println("Test: $randomString")
 
         /*
         setContent {

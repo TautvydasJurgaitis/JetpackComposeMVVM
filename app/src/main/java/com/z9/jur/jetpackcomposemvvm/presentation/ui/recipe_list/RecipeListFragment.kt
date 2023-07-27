@@ -1,4 +1,4 @@
-package com.z9.jur.jetpackcomposemvvm
+package com.z9.jur.jetpackcomposemvvm.presentation.ui.recipe_list
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -17,9 +17,24 @@ import androidx.fragment.app.Fragment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.sp
+import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
+import com.z9.jur.jetpackcomposemvvm.R
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class RecipeListFragment : Fragment() {
+
+    private val viewModel: RecipeListViewModel by viewModels()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        println("From viewModel ${viewModel.getRepository()}")
+        println("From viewModel ${viewModel.getToken()}")
+        println("Testas: $viewModel")
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
