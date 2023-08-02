@@ -67,7 +67,7 @@ dependencies {
     implementation("androidx.compose.material3:material3")
 
     // or Material Design 2
-  //  implementation("androidx.compose.material:material")
+    //  implementation("androidx.compose.material:material")
 
     // or skip Material Design and build directly on top of foundational components
     implementation("androidx.compose.foundation:foundation")

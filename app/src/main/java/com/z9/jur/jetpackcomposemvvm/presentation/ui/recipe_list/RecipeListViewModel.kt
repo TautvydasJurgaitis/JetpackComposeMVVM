@@ -1,7 +1,7 @@
 package com.z9.jur.jetpackcomposemvvm.presentation.ui.recipe_list
 
-import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.z9.jur.jetpackcomposemvvm.domain.model.Recipe
@@ -16,12 +16,8 @@ class RecipeListViewModel
 constructor(
 private val recipeRepository: RecipeRepository,
 @Named("auth_token") private val token: String): ViewModel() {
-    init {
-
-    }
-
-    val recipes: MutableState<List<Recipe>> = mutableStateOf(ArrayList())
-
+    private val _recipes: MutableLiveData<List<Recipe>> = MutableLiveData()
+    val recipes: LiveData<List<Recipe>> get() = _recipes
 
 
 }

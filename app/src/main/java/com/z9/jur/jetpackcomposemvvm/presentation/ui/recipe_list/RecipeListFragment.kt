@@ -30,8 +30,8 @@ class RecipeListFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        println("From viewModel ${viewModel.getRepository()}")
-        println("From viewModel ${viewModel.getToken()}")
+    //    println("From viewModel ${viewModel.getRepository()}")
+    //    println("From viewModel ${viewModel.getToken()}")
         println("Testas: $viewModel")
     }
 
