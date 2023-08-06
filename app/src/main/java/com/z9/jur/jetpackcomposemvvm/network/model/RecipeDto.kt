@@ -5,35 +5,35 @@ import com.google.gson.annotations.SerializedName
 data class RecipeDto(
 
     @SerializedName("pk")
-    var pk: Int,
+    var pk: Int?,
 
     @SerializedName("title")
-    var title: String,
+    var title: String?,
 
     @SerializedName("publisher")
-    var publisher: String,
+    var publisher: String?,
 
     @SerializedName("featured_image")
-    var featuredImage: String,
+    var featuredImage: String?,
 
     @SerializedName("rating")
-    var rating: Int,
+    var rating: Int?,
 
     @SerializedName("source_url")
-    var sourceUrl: String,
+    var sourceUrl: String?,
 
     @SerializedName("description")
-    var description: String,
+    var description: String?,
 
     @SerializedName("cooking_instructions")
-    var cookingInstructions: String,
+    var cookingInstructions: String?,
 
     @SerializedName("ingredients")
     var ingredients: List<String>?,
 
     @SerializedName("date_added")
-    var dateAdded: String,
+    var dateAdded: String?,
 
     @SerializedName("date_updated")
-    var dateUpdated: String
+    var dateUpdated: String?
 )

@@ -1,12 +1,15 @@
 package com.z9.jur.jetpackcomposemvvm.presentation.ui.recipe_list
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
@@ -20,6 +23,7 @@ import androidx.compose.ui.unit.sp
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import com.z9.jur.jetpackcomposemvvm.R
+import com.z9.jur.jetpackcomposemvvm.presentation.components.RecipeCard
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -30,9 +34,12 @@ class RecipeListFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        println("Testas: dsdsf")
+
     //    println("From viewModel ${viewModel.getRepository()}")
     //    println("From viewModel ${viewModel.getToken()}")
-        println("Testas: $viewModel")
+        println("Testas viewModel: $viewModel")
+        Log.e("Tagas", "Testas")
     }
 
     override fun onCreateView(
@@ -42,6 +49,23 @@ class RecipeListFragment : Fragment() {
     ): View {
         return ComposeView(requireContext()).apply {
             setContent {
+                val recipes = viewModel.recipes.value
+                
+                LazyColumn() {
+                    itemsIndexed(
+                        items = recipes
+                    ) {index, recipe ->
+                        RecipeCard(recipe = recipe, onClick = {findNavController().navigate(R.id.viewRecipe)})
+                    }
+                }
+                
+                /*
+                for(recipe in recipes) {
+                    println("testas 2 ${recipe.title}")
+                }
+
+            //    viewModel.recipes.value = recipes
+
                 Column(modifier = Modifier
                     .padding(16.dp)
                     .verticalScroll(rememberScrollState())) {
@@ -57,7 +81,7 @@ class RecipeListFragment : Fragment() {
                     }
 
                 }
-
+                 */
             }
         }
     }
