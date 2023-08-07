@@ -57,8 +57,6 @@ class RecipeListFragment : Fragment() {
                     println("${recipe.title}")
                 }
 
-            //    viewModel.recipes.value = recipes
-
                 Column(modifier = Modifier
                     .padding(16.dp)
                     .verticalScroll(rememberScrollState())) {

@@ -38,7 +38,7 @@ private val recipeRepository: RecipeRepository,
                     _recipes.value = result
                 }
                 catch (e: Exception) {
-                    println("Klaida $e")
+                    println("Error $e")
                 }
             }
 
