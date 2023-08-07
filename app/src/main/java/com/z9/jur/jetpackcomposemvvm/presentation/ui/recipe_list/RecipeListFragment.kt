@@ -33,13 +33,6 @@ class RecipeListFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        println("Testas: dsdsf")
-
-    //    println("From viewModel ${viewModel.getRepository()}")
-    //    println("From viewModel ${viewModel.getToken()}")
-        println("Testas viewModel: $viewModel")
-        Log.e("Tagas", "Testas")
     }
 
     override fun onCreateView(
@@ -61,7 +54,7 @@ class RecipeListFragment : Fragment() {
                 
                 /*
                 for(recipe in recipes) {
-                    println("testas 2 ${recipe.title}")
+                    println("${recipe.title}")
                 }
 
             //    viewModel.recipes.value = recipes
