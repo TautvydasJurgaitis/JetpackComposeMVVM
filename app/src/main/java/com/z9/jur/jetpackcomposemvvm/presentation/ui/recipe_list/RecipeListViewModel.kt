@@ -18,11 +18,15 @@ import javax.inject.Named
 class RecipeListViewModel
 @Inject
 constructor(
-private val recipeRepository: RecipeRepository,
-@Named("auth_token") private val token: String): ViewModel() {
- //   private val _recipes: MutableLiveData<List<Recipe>> = MutableLiveData()
+    private val recipeRepository: RecipeRepository,
+    @Named("auth_token") private val token: String
+) : ViewModel() {
+    //   private val _recipes: MutableLiveData<List<Recipe>> = MutableLiveData()
     private val _recipes: MutableState<List<Recipe>> = mutableStateOf(listOf())
     val recipes: State<List<Recipe>> = _recipes
+
+    private val _recipeSearchQuery = mutableStateOf("")
+    val recipeSearchQuery: State<String> = _recipeSearchQuery
 
     init {
         searchRecipesByQuery()
@@ -30,19 +34,19 @@ private val recipeRepository: RecipeRepository,
 
     fun searchRecipesByQuery() {
 
-            viewModelScope.launch {
-                try {
-                    val result = recipeRepository.search(
-                        token = token, page = 1, query = "chicken"
-                    )
-                    _recipes.value = result
-                }
-                catch (e: Exception) {
-                    println("Error $e")
-                }
+        viewModelScope.launch {
+            try {
+                val result = recipeRepository.search(
+                    token = token, page = 1, query = "chicken"
+                )
+                _recipes.value = result
+            } catch (e: Exception) {
+                println("Error $e")
             }
+        }
+    }
 
-
-
+    fun onRecipeSearchQueryChanged(query: String) {
+        _recipeSearchQuery.value = query
     }
 }
